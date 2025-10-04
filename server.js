@@ -3,6 +3,7 @@ const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const path = require('path');
+require('dotenv').config();
 
 const User = require('./models/User');
 const Product = require('./models/Product');
@@ -12,8 +13,17 @@ const { authenticateToken, JWT_SECRET } = require('./middleware/auth');
 const app = express();
 const PORT = 3000;
 
-// Replace with your MongoDB credentials
-const MONGODB_URI = "mongodb+srv://sunjeetkajla:Sk88112299.@testcluster.m8fpqgj.mongodb.net/?retryWrites=true&w=majority&appName=TestCluster";
+const MONGODB_URI = process.env.MONGODB_URI;
+// const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!MONGODB_URI) {
+  console.error('❌ MONGODB_URI not found in environment variables');
+  process.exit(1);
+}
+if (!JWT_SECRET) {
+  console.error('❌ JWT_SECRET not found in environment variables');
+  process.exit(1);
+}
 
 app.use(express.json());
 app.use(express.static('public'));

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo"><a href="/">E-Store</a></h1>
+        </div>
+    </nav>
+
+    <main class="checkout-container">
+        <h2>Checkout</h2>
+        <div class="checkout-content">
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div id="orderItems"></div>
+                <div class="total">Total: $<span id="orderTotal">0.00</span></div>
+            </div>
+            
+            <form id="checkoutForm" class="checkout-form">
+                <h3>Shipping Information</h3>
+                <input type="text" id="fullName" placeholder="Full Name" required>
+                <input type="text" id="address" placeholder="Address" required>
+                <input type="text" id="city" placeholder="City" required>
+                <input type="text" id="zipCode" placeholder="ZIP Code" required>
+                
+                <h3>Payment (Simulated)</h3>
+                <input type="text" placeholder="Card Number" value="**** **** **** 1234" readonly>
+                <input type="text" placeholder="Expiry" value="12/25" readonly>
+                <input type="text" placeholder="CVV" value="123" readonly>
+                
+                <button type="submit" class="place-order-btn">Place Order</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
